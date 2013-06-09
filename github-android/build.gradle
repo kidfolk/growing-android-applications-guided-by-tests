@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        // To use a development snapshot version of the plugin, add the
+        // Sonatype Snapshots repository.
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots"
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.4.2'
+    }
+}
+
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion "17"
+
+    defaultConfig {
+        versionCode 1
+        versionName "0.1-SNAPSHOT"
+        minSdkVersion 15
+        targetSdkVersion 17
+        testInstrumentationRunner "com.github.frankiesardo.gaagbt.presentation.android.ui.InjectingApplicationTestRunner"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+// Sets the package version
+version = "1.0.0"
+
+dependencies {
+    compile project(':github-android-core')
+    instrumentTestCompile 'com.jayway.android.robotium:robotium-solo:3.6'
+}
