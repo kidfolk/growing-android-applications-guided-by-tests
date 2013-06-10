@@ -15,6 +15,12 @@ before_install:
     # Install required Android components.
     - android update sdk --filter platform-tools,android-16,extra-android-support,$ANDROID_SDKS --no-ui --force
 
+    # Gradle
+    - wget http://services.gradle.org/distributions/gradle-1.6-bin.zip
+    - unzip gradle-1.6-bin.zip
+    - export GRADLE_HOME=$PWD/gradle-1.6
+    - export PATH=$GRADLE_HOME/bin:$PATH
+
     # Create and start emulator
     - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
     - emulator -avd test -no-skin -no-audio -no-window &
@@ -23,4 +29,4 @@ before_script:
     # Make sure the emulator has started before running tests
     - ./wait_for_emulator
 
-script: mvn install -Pintegration-tests -Dandroid.device=test
+script: gradle connectedInstrumentTest
