@@ -47,3 +47,6 @@ before_script:
 
 script:
   - gradle connectedInstrumentTest --stacktrace
+
+after_failure:
+  - cat /home/travis/build/frankiesardo/growing-android-applications-guided-by-tests/github-android/build/reports/instrumentTests/connected/index.html
