@@ -31,7 +31,7 @@ android {
         versionName "0.1-SNAPSHOT"
         minSdkVersion 15
         targetSdkVersion 17
-//        testInstrumentationRunner "com.github.frankiesardo.gaagbt.presentation.android.ui.InjectingApplicationTestRunner"
+        testInstrumentationRunner "com.github.frankiesardo.gaagbt.presentation.android.ui.InjectingApplicationTestRunner"
     }
 }
 
@@ -44,6 +44,7 @@ version = "1.0.0"
 
 dependencies {
     compile project(':github-android-core')
+    instrumentTestCompile project(':github-android-core')
     instrumentTestCompile 'com.jayway.android.robotium:robotium-solo:3.6'
 
     testLocalCompile project(':github-android-core')
