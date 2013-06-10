@@ -46,7 +46,7 @@ before_script:
   - adb shell input keyevent 82
 
 script:
-  - gradle connectedInstrumentTest --stacktrace
+  - gradle connectedInstrumentTest
 
 after_failure:
-  - cat /home/travis/build/frankiesardo/growing-android-applications-guided-by-tests/github-android/build/reports/instrumentTests/connected/index.html
+  - adb logcat -t 500
