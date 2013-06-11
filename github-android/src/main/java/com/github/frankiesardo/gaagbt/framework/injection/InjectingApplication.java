@@ -26,7 +26,7 @@ public class InjectingApplication extends Application {
         modules.add(new PresentationModule());
         modules.add(new ControllerModule());
         modules.add(new ScenarioModule());
-//        modules.add(getApiLevel().module());
+        modules.add(getApiLevel().module());
         return modules;
     }
 
