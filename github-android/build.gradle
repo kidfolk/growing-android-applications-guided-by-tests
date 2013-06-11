@@ -31,6 +31,7 @@ android {
         versionName "0.1-SNAPSHOT"
         minSdkVersion 15
         targetSdkVersion 17
+        testPackageName "com.github.frankiesardo.gaagbt.test"
         testInstrumentationRunner "com.github.frankiesardo.gaagbt.presentation.android.ui.InjectingApplicationTestRunner"
     }
 }
